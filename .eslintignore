@@ -1,0 +1,8 @@
+tests/end_to_end/js_api/src/**/customization
+tests/end_to_end/js_api/src/**/*.template.js
+tests/end_to_end/js_api/src/**/customization/js
+tests/end_to_end/js_api/src/**/shared/customization-js
+tests/end_to_end/**/*.global.js
+tests/end_to_end/node_modules
+tests/end_to_end/tmp
+tests/end_to_end/test-reports
