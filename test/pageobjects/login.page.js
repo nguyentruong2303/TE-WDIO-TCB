@@ -3,6 +3,8 @@ import Page from './page.js';
 const USERNAME_TXB = 'input[name="username"]';
 const PASSWORD_TXB = 'input[name="password"]';
 const LOGIN_BTN = 'input.login-button';
+const USERNAME_ERROR_MSG = '//input[@name="username"]/parent::div/following-sibling::div[1]';
+const PASSWORD_ERROR_MSG = '//input[@name="password"]/parent::div/following-sibling::div';
 
 
 /**
@@ -12,29 +14,26 @@ class LoginPage extends Page {
     /**
      * define selectors using getter methods
      */
-     inputUsername (username) {
-         $(USERNAME_TXB).setValue(username);
+    async inputUsername (username) {
+        await $(USERNAME_TXB).setValue(username);
          return this;
     }
 
-     inputPassword (password) {
-         $(PASSWORD_TXB).setValue(password);
+    async inputPassword (password) {
+        await $(PASSWORD_TXB).setValue(password);
          return this;
     }
 
-     clickOnLoginBtn () {
-         $(LOGIN_BTN).click();
+    async clickOnLoginBtn () {
+        await $(LOGIN_BTN).click();
+    }
+    async getErrorMSGUsername() {
+        (await $(USERNAME_ERROR_MSG)).getText();
+    }
+    async getErrorMSGPassword() {
+        (await $(PASSWORD_ERROR_MSG)).getText();
     }
 
-    /**
-     * a method to encapsule automation code to interact with the page
-     * e.g. to login using username and password
-     */
-    async login (username, password) {
-        await this.inputUsername.setValue(username);
-        await this.inputPassword.setValue(password);
-        await this.btnSubmit.click();
-    }
 
     /**
      * overwrite specific options to adapt it to page object
