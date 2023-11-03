@@ -1,4 +1,3 @@
-import { $ } from '@wdio/globals'
 import Page from './page.js';
 
 const USERNAME_TXB = 'input[name="username"]';
@@ -40,8 +39,8 @@ class LoginPage extends Page {
     /**
      * overwrite specific options to adapt it to page object
      */
-    open () {
-        return super.open('login');
+    open (path) {
+        return super.open(path);
     }
 }
 

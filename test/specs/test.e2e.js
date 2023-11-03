@@ -1,12 +1,12 @@
-import { expect } from '@wdio/globals'
 import LoginPage from 'test/pageobjects/login.page.js'
-import SecurePage from 'test/pageobjects/secure.page.js'
 
 describe('My Login application', () => {
-    it('should login with valid credentials', async () => {
-        await LoginPage.open()
 
-        await LoginPage.login('cybozu', 'cybozu')
+    it('should login with valid credentials', async () => {
+
+        await LoginPage.open('https://truong-nguyen-1.cybozu-dev.com/');
+
+        await LoginPage.login('cybozu', 'cybozu');
     })
 })
 

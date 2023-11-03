@@ -22,7 +22,7 @@ export const config = {
     // will be called from there.
     //
     specs: [
-        'test/specs/test.e2e.js'
+        './test/specs/test.e2e.js'
     ],
     // Patterns to exclude.
     exclude: [
@@ -125,6 +125,10 @@ export const config = {
     // The only one supported by default is 'dot'
     // see also: https://webdriver.io/docs/dot-reporter
     reporters: ['spec',['allure', {outputDir: 'allure-results'}]],
+
+    featureFlags: {
+        specFiltering: true
+    },
 
     // Options to be passed to Mocha.
     // See the full list at http://mochajs.org/
