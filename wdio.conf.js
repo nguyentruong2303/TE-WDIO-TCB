@@ -4,6 +4,8 @@ export const config = {
     // Runner Configuration
     // ====================
     // WebdriverIO supports running e2e tests as well as unit and component tests.
+    // Nếu runner ko tồn tại sẽ báo lỗi : Couldn't find plugin "aasdsadsdas" runner, 
+    //neither as wdio scoped package "@wdio/aasdsadsdas-runner" nor as community package "wdio-aasdsadsdas-runner". Please make sure you have it installed!
     runner: 'local',
     //
     // ==================
@@ -22,11 +24,11 @@ export const config = {
     // will be called from there.
     //
     specs: [
-        './test/specs/test.e2e.js'
+        './test/specs/**'
     ],
     // Patterns to exclude.
     exclude: [
-        // 'path/to/excluded/files'
+        //'./test/groups/**'
     ],
     //
     // ============
@@ -51,8 +53,17 @@ export const config = {
     // https://saucelabs.com/platform/platform-configurator
     //
     capabilities: [{
-        browserName: 'chrome'
-    }],
+        // maxInstances sẽ lấy giá trị ở trong capabilities
+        maxInstances: 3,
+        browserName: 'chrome',
+        //specs: ['./test/specs/Login.js']
+    },
+    // {
+    //     maxInstances: 3,
+    //     browserName:'firefox',
+    //     specs: ['./test/specs/DemoRegexp.js']
+    // }
+],
 
     //
     // ===================
@@ -85,7 +96,7 @@ export const config = {
     // with `/`, the base url gets prepended, not including the path portion of your baseUrl.
     // If your `url` parameter starts without a scheme or `/` (like `some/path`), the base url
     // gets prepended directly.
-    baseUrl: 'http://localhost',
+    baseUrl: 'https://truong-nguyen-1.cybozu-dev.com/login',
     //
     // Default timeout for all waitFor* commands.
     waitforTimeout: 10000,
@@ -96,6 +107,17 @@ export const config = {
     //
     // Default request retries count
     connectionRetryCount: 3,
+
+    // Số lần retry test spec when it failed
+    specFileRetries: 1,
+    /**
+     * Delay in seconds between the spec file retry attempts
+     */
+    specFileRetriesDelay: 0,
+    /**
+     * Retried specfiles are inserted at the beginning of the queue and retried immediately
+     */
+    specFileRetriesDeferred: false,
     //
     // Test runner services
     // Services take over a specific job you don't want to take care of. They enhance
@@ -124,7 +146,8 @@ export const config = {
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
     // see also: https://webdriver.io/docs/dot-reporter
-    reporters: ['spec',['allure', {outputDir: 'allure-results'}]],
+    reporters: ['spec',
+    ['allure', {outputDir: 'allure-results'}, {disableWebdriverScreenshotsReporting: false}, {disableWebdriverStepsReporting: true}]],
 
     featureFlags: {
         specFiltering: true
@@ -134,7 +157,8 @@ export const config = {
     // See the full list at http://mochajs.org/
     mochaOpts: {
         ui: 'bdd',
-        timeout: 60000
+        timeout: 60000,
+        //grep: 'ABc'
     },
 
     //
