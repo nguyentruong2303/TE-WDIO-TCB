@@ -24,11 +24,12 @@ export const config = {
     // will be called from there.
     //
     specs: [
-        './test/specs/**'
+        '../test/specs/Scheduler.js'
     ],
     // Patterns to exclude.
     exclude: [
-        //'./test/groups/**'
+        '../test/groups/**',
+        '../test/Demo/**'
     ],
     //
     // ============
@@ -54,7 +55,6 @@ export const config = {
     //
     capabilities: [{
         // maxInstances sẽ lấy giá trị ở trong capabilities
-        maxInstances: 3,
         browserName: 'chrome',
         //specs: ['./test/specs/Login.js']
     },
@@ -96,7 +96,7 @@ export const config = {
     // with `/`, the base url gets prepended, not including the path portion of your baseUrl.
     // If your `url` parameter starts without a scheme or `/` (like `some/path`), the base url
     // gets prepended directly.
-    baseUrl: 'https://truong-nguyen-1.cybozu-dev.com/login',
+    baseUrl: '',
     //
     // Default timeout for all waitFor* commands.
     waitforTimeout: 10000,
@@ -106,10 +106,10 @@ export const config = {
     connectionRetryTimeout: 120000,
     //
     // Default request retries count
-    connectionRetryCount: 3,
+    connectionRetryCount: 1,
 
     // Số lần retry test spec when it failed
-    specFileRetries: 1,
+    specFileRetries: 0,
     /**
      * Delay in seconds between the spec file retry attempts
      */
@@ -149,9 +149,9 @@ export const config = {
     reporters: ['spec',
     ['allure', {outputDir: 'allure-results'}, {disableWebdriverScreenshotsReporting: false}, {disableWebdriverStepsReporting: true}]],
 
-    featureFlags: {
-        specFiltering: true
-    },
+    // featureFlags: {
+    //     specFiltering: true
+    // },
 
     // Options to be passed to Mocha.
     // See the full list at http://mochajs.org/

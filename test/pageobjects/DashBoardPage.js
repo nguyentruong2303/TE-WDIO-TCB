@@ -13,6 +13,7 @@ class DashBoardPage {
         await $(ADMINISTRATION_SERVICE).click();
     }
     async openGaroonService() {
+        await $(GAROON_SERVICE).waitForDisplayed({timeout: 5000});
         await $(GAROON_SERVICE).click();
         return PortalPage;
     }
@@ -27,6 +28,7 @@ class DashBoardPage {
     }
     
     async closeNotifierCybozu() {
+        await $(NOTIFIER_CYBOZU).waitForDisplayed({timeout: 5000});
         await $(NOTIFIER_CYBOZU).click();
     }
 

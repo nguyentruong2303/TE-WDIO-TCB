@@ -5,6 +5,7 @@ const USERNAME_TXB = 'input[name="username"]';
 const PASSWORD_TXB = 'input[name="password"]';
 const LOGIN_BTN = 'input.login-button';
 const LOGIN_ERROR_MSG = 'div.login-error-message';
+const LOGIN_DATA = {username:"", password:""};
 
 
 /**
@@ -12,12 +13,13 @@ const LOGIN_ERROR_MSG = 'div.login-error-message';
  */
 class LoginPage extends Page {
 
-    async loginToGaroonWithCredentials(username, password) {
+    async loginToGaroonWithCredentials(LOGIN_DATA) {
         await $(USERNAME_TXB).waitForDisplayed({timeout: 5000});
-        await $(USERNAME_TXB).clearValue();
-        await $(USERNAME_TXB).setValue(username);
-        await $(PASSWORD_TXB).clearValue();
-        await $(PASSWORD_TXB).setValue(password);
+        await $(USERNAME_TXB).setValue(LOGIN_DATA.username);
+
+        await $(PASSWORD_TXB).waitForDisplayed({timeout: 5000});
+        await $(PASSWORD_TXB).setValue(LOGIN_DATA.password);
+        
         await $(LOGIN_BTN).click();
         return DashBoard;
     }
