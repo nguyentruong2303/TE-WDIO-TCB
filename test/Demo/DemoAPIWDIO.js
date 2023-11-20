@@ -22,7 +22,7 @@ const LOGIN_BTN = 'input.login-button';
 //         // }
 //         const MENU_NOTIFICATION = await $('div.appmenu-item-icon');
 //         await MENU_NOTIFICATION.click();
-//     })
+//     });
 // })
 // describe('This Example show usage of $$ command in webdriverio',  () => {
 
@@ -73,7 +73,7 @@ const LOGIN_BTN = 'input.login-button';
     // await browser.url('https://webdriver.io')
 
     // console.log(await browser.execute(() => window.scrollY)) // returns 0
-    // await browser.scroll(0, 200)
+    // await browser.scroll(0, 200);
     // console.log(await browser.execute(() => window.scrollY)) // return 200
     // });
     // it('Demo API switch Window', async function() {

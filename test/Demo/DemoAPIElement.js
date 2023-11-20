@@ -48,7 +48,7 @@ const USERNAME_TXB = 'input[name="username"]';
 //     // it('Demo saveScreenshot',async function () {
 //     //     await browser.url('https://truong-nguyen-1.cybozu-dev.com/login');
 //     //     const getTextDemo = await $('.login-help');
-//     //     await getTextDemo.saveScreenshot('../TOPIC3_WDIO/test/screenshot/screenshot1.png')
+//     //     await getTextDemo.saveScreenshot('../TOPIC3_WDIO/test/screenshot/screenshot1.png');
 //     // });
 
 // })

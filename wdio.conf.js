@@ -1,4 +1,4 @@
-export const config = {
+exports.config = {
     //
     // ====================
     // Runner Configuration
@@ -24,8 +24,18 @@ export const config = {
     // will be called from there.
     //
     specs: [
-        '../test/specs/Scheduler.js'
+        '../test/test_specs/Login.js'
     ],
+    suites: {
+        login: [
+            './test/test_specs/Login.js'
+        ],
+        scheduler: [
+            './test/test_specs/AllDayAppointment/AddAllDayAppointment.js',
+            './test/test_specs/RegularAppointment/AddRegularAppointment.js',
+            './test/test_specs/RepeatingAppointment/AddRepeatingAppointment.js',
+        ]
+    },
     // Patterns to exclude.
     exclude: [
         '../test/groups/**',
@@ -55,15 +65,20 @@ export const config = {
     //
     capabilities: [{
         // maxInstances sẽ lấy giá trị ở trong capabilities
-        browserName: 'chrome',
+                browserName: 'chrome'}
+    //             ,
+    // // maxInstances sẽ lấy giá trị ở trong capabilities
+    //             {browserName: 'firefox',
+    //         }
+    ],
+
         //specs: ['./test/specs/Login.js']
-    },
+
     // {
     //     maxInstances: 3,
     //     browserName:'firefox',
     //     specs: ['./test/specs/DemoRegexp.js']
     // }
-],
 
     //
     // ===================
@@ -146,8 +161,12 @@ export const config = {
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
     // see also: https://webdriver.io/docs/dot-reporter
-    reporters: ['spec',
-    ['allure', {outputDir: 'allure-results'}, {disableWebdriverScreenshotsReporting: false}, {disableWebdriverStepsReporting: true}]],
+    reporters: ['spec',['allure', {
+        outputDir: 'allure-results', 
+        disableWebdriverScreenshotsReporting: true, 
+        disableWebdriverStepsReporting: true,
+        disableMochaHooks: true
+    }]],
 
     // featureFlags: {
     //     specFiltering: true
@@ -158,7 +177,7 @@ export const config = {
     mochaOpts: {
         ui: 'bdd',
         timeout: 60000,
-        //grep: 'ABc'
+        //grep: 'API'
     },
 
     //
@@ -226,8 +245,10 @@ export const config = {
      * Hook that gets executed before the suite starts
      * @param {object} suite suite details
      */
-    // beforeSuite: function (suite) {
-    // },
+    beforeSuite: function (suite) {
+        //browser.url('https://truong-nguyen-1.cybozu-dev.com/g/schedule/add.csp?');
+        browser.maximizeWindow();
+    },
     /**
      * Function to be executed before a test (in Mocha/Jasmine) starts.
      */
