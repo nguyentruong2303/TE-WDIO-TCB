@@ -26,7 +26,7 @@ describe('Edit Regular Appointment', () => {
         await EditRegularAppointmentFlow.editRegularAppointmentUnsuccessWithAttendeesAreEmpty();
     });
 
-    it('TC_02_EditRegularAppointmentSuccessfully', async () => {
+    it('TC_03_EditRegularAppointmentSuccessfully', async () => {
         allureReporter.addFeature('Edit Regular Appointment');
         allureReporter.addDescription('Edit Regular Appointment Successfully');
         await EditRegularAppointmentFlow.editRegularAppointmentSuccess(EDIT_APPOINTMENT_DATA_VALID);

@@ -29,6 +29,7 @@ const DELETE_LINK = "//a[contains(@href,'/g/schedule/delete.csp?')]";
 const ALL_ATTENDEES_RAD = "//label[contains(text(),'All attendees')]/preceding-sibling::input";
 const SAVE_BTN = "#schedule_button_save>a";
 const EVENT_LINK = "//a[contains(@href,'/g/schedule/view.csp')]";
+const RANGE_ALL_APPOINTMENT_LBL = "//label[text()='All appointments']/preceding-sibling::input";
 const dateAndTime = {year:"", month: "", day:"", hour: "", minute:""};
 const ERROR_DIAGNOSOS_LBL = ".error_diagnosis";
 const MSG_OK_BTN = "#msgbox_btn_ok";
@@ -113,6 +114,9 @@ class SchedulerPage {
     async removeAllUserAttendees() {
         await $(SELECT_ALL_SELECTLIST_BTN).click();
         await $(REMOVE_USER_BTN).click();
+    };
+    async selectRangeAllAppointment() {
+        await $(RANGE_ALL_APPOINTMENT_LBL).click();
     };
 }
 

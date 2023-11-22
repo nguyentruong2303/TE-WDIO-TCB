@@ -1,5 +1,5 @@
 const LoginPage = require('../../pageobjects/LoginPage.js');
-const AddRepeatingAppointmentFlow = require('../../test_flows/RePeatingAppointmentFow/AddRepeatingAppointmentFlow.js');
+const AddRepeatingAppointmentFlow = require('../../test_flows/RePeatingAppointmentFlow/AddRepeatingAppointmentFlow.js');
 const LogoutPage = require('../../pageobjects/LogoutPage.js');
 const {VALID_LOGIN} = require('../../test_datas/Login_Data.js');
 const {APPOINTMENT_DATA_VALID} = require('../../test_datas/Add_Appointment_Data.js');
@@ -19,13 +19,13 @@ describe('Add Repeating Appointment', () => {
         await AddRepeatingAppointmentFlow.addRepeatingAppointmentUnsuccessfullyWithDateAndTimeAreInvalid(APPOINTMENT_DATA_INVALID);
     });
 
-    it('TC_01_Add_Repeating_Appointment_Unsuccessfully_With_Attendees_Are_Invalid', async () => {
+    it('TC_02_Add_Repeating_Appointment_Unsuccessfully_With_Attendees_Are_Invalid', async () => {
         allureReporter.addFeature('Add Repeating Appointment');
         allureReporter.addDescription('Add_Repeating_Appointment_Unsuccessfully_With_Attendees_Are_Empty');
         await AddRepeatingAppointmentFlow.addRepeatingAppointmentUnsuccessfullyWithAttendeesAreEmpty(APPOINTMENT_DATA_VALID);
     });
     
-    it('TC_01_Add_Repeating_Appointment_Successfully', async () => {
+    it('TC_03_Add_Repeating_Appointment_Successfully', async () => {
         allureReporter.addFeature('Add Repeating Appointment');
         allureReporter.addDescription('Add_Repeating_Appointment_Successfully');
         await AddRepeatingAppointmentFlow.addRepeatingAppointmentSuccessfully(APPOINTMENT_DATA_VALID);
