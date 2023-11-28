@@ -24,7 +24,6 @@ describe('Login', () => {
 
     tests.forEach(({username, password}) => {
         it('TC_03_Login_Unsuccessfully', async () => {
-            allureReporter.addFeature('Login');
             allureReporter.addDescription('Login successful with valid username and password');
             await $(USERNAME_TXB).setValue(username);
             await $(PASSWORD_TXB).setValue(password);

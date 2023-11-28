@@ -37,7 +37,6 @@ const MSG_OK_BTN = "#msgbox_btn_ok";
 class SchedulerPage {
 
     async openNewAppointment() {
-        (await $(NEW_LINK)).waitForDisplayed({timeout:10000});
         await $(NEW_LINK).click();
     };
 

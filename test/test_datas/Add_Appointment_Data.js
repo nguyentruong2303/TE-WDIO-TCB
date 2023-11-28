@@ -2,7 +2,7 @@ exports.APPOINTMENT_DATA_VALID = {
     startDate: {
         year: "2023",
         month: "Nov",
-        day: "20(Mon)"
+        day: "28(Tue)"
     },
     startTime: {
         hour: "9",
@@ -12,7 +12,7 @@ exports.APPOINTMENT_DATA_VALID = {
     endDate: {
         year: "2023",
         month: "Nov",
-        day: "20(Mon)"
+        day: "28(Tue)"
     },
     endTime: {
         hour: "10",

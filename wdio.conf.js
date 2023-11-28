@@ -24,7 +24,12 @@ exports.config = {
     // will be called from there.
     //
     specs: [
-        '../test/test_specs/Login.js'
+        '../test/test_specs/**/*.js',
+        '../test/Demo/*.js',
+        '../test/test_specs/Login.js',
+        '../test/test_specs/AllDayAppointment/AddAllDayAppointment.js',
+        '../test/test_specs/RegularAppointment/AddRegularAppointment.js',
+        '../test/test_specs/RepeatingAppointment/AddRepeatingAppointment.js'
     ],
     suites: {
         login: [
@@ -39,7 +44,7 @@ exports.config = {
     // Patterns to exclude.
     exclude: [
         '../test/groups/**',
-        '../test/Demo/**'
+
     ],
     //
     // ============
@@ -65,9 +70,10 @@ exports.config = {
     //
     capabilities: [{
         // maxInstances sẽ lấy giá trị ở trong capabilities
-                browserName: 'chrome'}
+        // maxInstances: 3,
+            browserName: 'chrome'}
     //             ,
-    // // maxInstances sẽ lấy giá trị ở trong capabilities
+    // // // maxInstances sẽ lấy giá trị ở trong capabilities
     //             {browserName: 'firefox',
     //         }
     ],
@@ -111,7 +117,7 @@ exports.config = {
     // with `/`, the base url gets prepended, not including the path portion of your baseUrl.
     // If your `url` parameter starts without a scheme or `/` (like `some/path`), the base url
     // gets prepended directly.
-    baseUrl: '',
+    baseUrl: 'https://truong-nguyen-1.cybozu-dev.com',
     //
     // Default timeout for all waitFor* commands.
     waitforTimeout: 10000,
@@ -163,8 +169,8 @@ exports.config = {
     // see also: https://webdriver.io/docs/dot-reporter
     reporters: ['spec',['allure', {
         outputDir: 'allure-results', 
-        disableWebdriverScreenshotsReporting: true, 
-        disableWebdriverStepsReporting: true,
+        disableWebdriverScreenshotsReporting: false, 
+        disableWebdriverStepsReporting: false,
         disableMochaHooks: true
     }]],
 
@@ -177,7 +183,7 @@ exports.config = {
     mochaOpts: {
         ui: 'bdd',
         timeout: 60000,
-        grep: 'TC'
+        //grep: 'TC'
     },
 
     //
@@ -246,7 +252,6 @@ exports.config = {
      * @param {object} suite suite details
      */
     beforeSuite: function (suite) {
-        //browser.url('https://truong-nguyen-1.cybozu-dev.com/g/schedule/add.csp?');
         browser.maximizeWindow();
     },
     /**
